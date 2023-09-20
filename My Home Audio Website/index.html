@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Home</title>
+  <style>
+    body {
+      background-color: lavender; /* Light purple background */
+      text-align: center; /* Center-align text */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh; /* Set the body height to 100% of the viewport height */
+      margin: 0; /* Remove default margin */
+    }
+
+    .container {
+      text-align: center; /* Center-align text within the container */
+      margin-bottom: 20px; /* Add some space between containers */
+    }
+
+    h1, h2 {
+      color: indigo; /* Set the color of titles */
+    }
+  </style>
+</head>
+<body>
+  <h1>Main Title: My Home</h1>
+
+  <div class="container">
+    <h2>Mixed Audio English and Spanish Together</h2>
+    <audio id="audio1" controls src="Mixed Audio English and Spanish Together.mp3"></audio>
+  </div>
+
+  <div class="container">
+    <h2>English Language Only</h2>
+    <audio id="audio2" controls src="English Language Only.mp3"></audio>
+  </div>
+
+  <div class="container">
+    <h2>Spanish Language Only</h2>
+    <audio id="audio3" controls src="Spanish Language Only.mp3"></audio>
+  </div>
+
+  <div class="container">
+    <h2>Full Convo Unmixed</h2>
+    <audio id="audio4" controls src="Full Convo Unmixed.mp3"></audio>
+  </div>
+
+  <button onclick="toggleAudio()">Toggle Audio</button>
+
+  <script>
+    let audio1 = document.getElementById('audio1');
+    let audio2 = document.getElementById('audio2');
+    let audio3 = document.getElementById('audio3');
+    let audio4 = document.getElementById('audio4');
+    let currentAudio = audio1;
+
+    function toggleAudio() {
+      audio1.muted = true;
+      audio2.muted = true;
+      audio3.muted = true;
+      audio4.muted = true;
+
+      if (currentAudio === audio1) {
+        audio1.muted = false;
+        currentAudio = audio2;
+      } else if (currentAudio === audio2) {
+        audio2.muted = false;
+        currentAudio = audio3;
+      } else if (currentAudio === audio3) {
+        audio3.muted = false;
+        currentAudio = audio4;
+      } else {
+        audio4.muted = false;
+        currentAudio = audio1;
+      }
+    }
+  </script>
+</body>
+</html>
